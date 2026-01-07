@@ -1,0 +1,8 @@
+{
+  "name": "Velocity Sports",
+  "description": "A premium e-commerce platform for elite athletes, featuring high-performance gear, apparel, and an AI-powered personal shopping assistant.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
