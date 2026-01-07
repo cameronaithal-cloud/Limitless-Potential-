@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { CartItem } from '../types';
-import { Button } from './Button';
+import { CartItem } from '../types.ts';
+import { Button } from './Button.tsx';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -89,7 +89,6 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
               <span className="text-2xl font-bold text-black">${total.toFixed(2)}</span>
             </div>
             <Button fullWidth size="lg">Checkout Now</Button>
-            <p className="text-center text-xs text-gray-400 mt-4">Shipping and taxes calculated at checkout.</p>
           </div>
         )}
       </div>

@@ -1,8 +1,8 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { getAIResponse } from '../services/geminiService';
-import { ChatMessage } from '../types';
-import { Button } from './Button';
+import { getAIResponse } from '../services/geminiService.ts';
+import { ChatMessage } from '../types.ts';
+import { Button } from './Button.tsx';
 
 export const ChatAssistant: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,7 +62,7 @@ export const ChatAssistant: React.FC = () => {
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-white p-3 rounded-2xl rounded-tl-none border border-gray-100 flex space-x-1">
+                <div className="bg-white p-3 rounded-2xl border border-gray-100 flex space-x-1">
                   <div className="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce" />
                   <div className="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce delay-75" />
                   <div className="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce delay-150" />
@@ -83,7 +83,7 @@ export const ChatAssistant: React.FC = () => {
             <button 
               onClick={handleSend}
               disabled={isLoading}
-              className="bg-black text-white p-2 rounded-full hover:bg-indigo-600 transition-colors disabled:opacity-50"
+              className="bg-black text-white p-2 rounded-full hover:bg-indigo-600"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -94,12 +94,11 @@ export const ChatAssistant: React.FC = () => {
       ) : (
         <button 
           onClick={() => setIsOpen(true)}
-          className="bg-black text-white p-4 rounded-full shadow-xl hover:scale-110 transition-transform flex items-center space-x-2 border-2 border-white"
+          className="bg-black text-white p-4 rounded-full shadow-xl hover:scale-110 transition-transform border-2 border-white"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
           </svg>
-          <span className="font-bold text-sm">Shopping Help</span>
         </button>
       )}
     </div>

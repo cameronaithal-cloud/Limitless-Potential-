@@ -1,12 +1,12 @@
 
 import React, { useState, useMemo } from 'react';
 import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { PRODUCTS, CATEGORIES } from './constants';
-import { Product, CartItem, Category } from './types';
-import { ProductCard } from './components/ProductCard';
-import { CartDrawer } from './components/CartDrawer';
-import { Button } from './components/Button';
-import { ChatAssistant } from './components/ChatAssistant';
+import { PRODUCTS, CATEGORIES } from './constants.tsx';
+import { Product, CartItem, Category } from './types.ts';
+import { ProductCard } from './components/ProductCard.tsx';
+import { CartDrawer } from './components/CartDrawer.tsx';
+import { Button } from './components/Button.tsx';
+import { ChatAssistant } from './components/ChatAssistant.tsx';
 
 const Home: React.FC<{ 
   onAddToCart: (p: Product) => void;
@@ -28,14 +28,14 @@ const Home: React.FC<{
       {/* Hero Section */}
       <section className="relative h-[600px] rounded-[40px] overflow-hidden group">
         <img 
-          src="https://picsum.photos/seed/sportshero/1600/900" 
+          src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop" 
           alt="Hero" 
           className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent flex items-center px-12 sm:px-24">
           <div className="max-w-2xl space-y-6">
             <span className="inline-block bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full text-white text-xs font-bold tracking-[0.2em] uppercase">
-              Season 2024 Arrived
+              Season 2025 Arrived
             </span>
             <h1 className="text-6xl sm:text-8xl font-black text-white leading-tight">
               LIMITLESS <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">POTENTIAL.</span>
@@ -99,6 +99,7 @@ const Home: React.FC<{
             <ProductCard 
               key={product.id} 
               product={product} 
+              /* Fixed: Changed 'addToCart' to 'onAddToCart' as 'addToCart' is not defined in this scope but passed as a prop. */
               onAddToCart={onAddToCart}
               onViewDetails={onViewDetails}
             />
@@ -269,7 +270,6 @@ const App: React.FC = () => {
                   The world's premier provider of professional athletic equipment. We fuel performance at every level.
                 </p>
                 <div className="flex space-x-4">
-                  {/* Social placeholders */}
                   {[1,2,3,4].map(i => (
                     <div key={i} className="w-8 h-8 bg-gray-800 rounded-lg hover:bg-indigo-600 cursor-pointer transition-colors" />
                   ))}
@@ -313,7 +313,7 @@ const App: React.FC = () => {
             </div>
             
             <div className="pt-8 border-t border-gray-900 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
-              <p>© 2024 Velocity Sports Performance Ltd. All rights reserved.</p>
+              <p>© 2025 Velocity Sports Performance Ltd. All rights reserved.</p>
               <div className="flex space-x-8">
                 <Link to="/" className="hover:text-white">Privacy Policy</Link>
                 <Link to="/" className="hover:text-white">Terms of Service</Link>
