@@ -10,13 +10,17 @@
         body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        /* Smooth transitions for a professional feel */
         * { transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform; transition-duration: 200ms; }
     </style>
     <script>
-      // Fixes "White Screen" by ensuring process.env exists before any JS runs
-      if (typeof window.process === 'undefined') {
-        window.process = { env: { API_KEY: "" } };
-      }
+      // Crucial: This shim prevents the app from crashing on "process is not defined"
+      // and ensures the Gemini SDK can access the API key correctly.
+      window.process = {
+        env: {
+          API_KEY: "" 
+        }
+      };
     </script>
     <script type="importmap">
 {

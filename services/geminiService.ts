@@ -19,8 +19,9 @@ Strategy:
 
 export const getAIResponse = async (userMessage: string, history: { role: 'user' | 'model', text: string }[]) => {
   try {
-    // Correct initialization as per rules
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || "" });
+    // Correct initialization: Named parameter 'apiKey' is required.
+    // process.env.API_KEY is injected by the host environment.
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
@@ -34,7 +35,7 @@ export const getAIResponse = async (userMessage: string, history: { role: 'user'
       },
     });
 
-    // Property access instead of method call for .text
+    // Directly access .text property as per latest SDK rules.
     return response.text || "I'm having trouble connecting to the locker room right now. How else can I help?";
   } catch (error) {
     console.error("Gemini Service Error:", error);
