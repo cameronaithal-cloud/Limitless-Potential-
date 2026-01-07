@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { PRODUCTS, CATEGORIES } from './constants.tsx';
@@ -99,7 +98,6 @@ const Home: React.FC<{
             <ProductCard 
               key={product.id} 
               product={product} 
-              /* Fixed: Changed 'addToCart' to 'onAddToCart' as 'addToCart' is not defined in this scope but passed as a prop. */
               onAddToCart={onAddToCart}
               onViewDetails={onViewDetails}
             />
